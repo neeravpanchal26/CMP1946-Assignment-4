@@ -8,6 +8,16 @@ public class Triangle : IShape
 
     public Triangle(double sideA, double sideB, double sideC)
     {
+        if (sideA <= 0 || sideB <= 0 || sideC <= 0)
+        {
+            throw new ArgumentException("Side lengths must be positive numbers.", nameof(sideA));
+        }
+
+        if (sideA + sideB <= sideC || sideA + sideC <= sideB || sideB + sideC <= sideA)
+        {
+            throw new ArgumentException("Invalid side lengths for a triangle.", nameof(sideA));
+        }
+
         this.sideA = sideA;
         this.sideB = sideB;
         this.sideC = sideC;

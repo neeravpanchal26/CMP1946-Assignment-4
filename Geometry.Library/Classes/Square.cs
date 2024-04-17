@@ -6,6 +6,11 @@ public class Square : IShape
 
     public Square(double sideLength)
     {
+        if (sideLength <= 0)
+        {
+            throw new ArgumentException("Side length must be a positive number.", nameof(sideLength));
+        }
+
         this.sideLength = sideLength;
     }
 
